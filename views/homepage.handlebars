@@ -1,1 +1,18 @@
-<p>HELLO WORLD</p>
+<ul> 
+  {{#each customers as |customer|}} 
+  <li>{{customer.firstName}}</li> 
+  {{/each}} 
+</ul>
+
+<ul> 
+  {{#each carts as |cart|}} 
+  <li>{{cart.title}}</li> 
+  {{/each}} 
+</ul>
+
+
+<ul> 
+  {{#each wishlists as |wishlist|}} 
+  <li>{{wishlist.title}}</li> 
+  {{/each}} 
+</ul>
