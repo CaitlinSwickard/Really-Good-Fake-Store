@@ -4,9 +4,11 @@ const {Wishlist} = require('../../models');
 router.get('/', async (req, res) => { 
     try {
         const getAllWishlist = await Wishlist.findAll();
-        res.json(getAllWishlist);
+        const wishlists = getAllWishlist.map(wishlist => wishlist.toJSON());
+        // render to homepage
+        res.status(200).render('homepage', { wishlists });
     } catch (err) {
-        res.json(err);
+        res.status(500).json(err);
     }
 });
 

@@ -4,9 +4,11 @@ const {Cart } = require('../../models');
 router.get('/', async (req, res) => { 
     try {
         const getAllCart = await Cart.findAll();
-        res.json(getAllCart);
+        const carts = getAllCart.map(cart => cart.toJSON());
+        // render to homepage
+        res.status(200).render('homepage', { carts });
     } catch (err) {
-        res.json(err);
+        res.status(500).json(err);
     }
 });
 
