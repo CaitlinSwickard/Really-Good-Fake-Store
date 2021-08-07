@@ -1,6 +1,7 @@
 const Cart = require('./Cart');
 const Customer = require('./Customer');
 const Wishlist = require('./Wishlist');
+const Product = require('./Products');
 
 
 Customer.hasMany(Cart, {
@@ -23,6 +24,6 @@ Wishlist.belongsTo(Customer, {
 
 
 
-module.exports = { Cart, Customer, Wishlist};
+module.exports = { Cart, Customer, Wishlist, Product};
 
 
