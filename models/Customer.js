@@ -1,7 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const bcrypt = require('bcrypt');
 
-class Customer extends Model { }
+class Customer extends Model {
+  checkPassword(loginPw) {
+  return bcrypt.compareSync(loginPw, this.password);
+}};
 
 Customer.init(
   {
@@ -10,14 +14,6 @@ Customer.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
-    },
-    firstName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: false,
     },
     username: {
       type: DataTypes.STRING,
@@ -32,25 +28,23 @@ Customer.init(
       allowNull: false,
     },
   },
-
   {
-    // hooks: {
-    //   beforeCreate: async (newUserData) => {
-    //     try {
-    //       const salt = await bcrypt.genSalt(10);
-    //       newUserData.password = await bcrypt.hash(newUserData.password, salt);
-    //       return newUserData;
-    //     } catch (err) {
-    //       if (err) throw err;
-    //       // do we need res.json here????
-    //     }
-    //   },
+    hooks: {
+      beforeCreate: async (newUserData) => {
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        return newUserData;
+      },
+      beforeUpdate: async (updatedUserData) => {
+        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        return updatedUserData;
+      },
+    },
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'customer',
-  }
+  },
 );
 
 
