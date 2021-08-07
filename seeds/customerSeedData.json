@@ -1,14 +1,10 @@
 [
   {
-    "firstName": "Sally",
-    "lastName": "Sue",
     "username": "sallysuerocks",
     "email": "sally@sue.com",
     "password": "password"
   },
   {
-    "firstName": "Sandie",
-    "lastName": "Sandbox",
     "username": "sandiesuperrocks",
     "email": "sandie@sandbox.com",
     "password": "password1"
