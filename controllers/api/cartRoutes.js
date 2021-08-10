@@ -9,10 +9,9 @@ router.get('/', async (req, res) => {
             },
             include: [{ model: Product, through: Cart }]
         });
+
         const carts = cartProducts.map(cart => cart.toJSON());
         const products = carts[0].products;
-        console.log("CARTS", carts);
-        console.log("PRODUCTS", products)
         res.status(200).render('cart', { products });
     } catch (err) {
         console.log(err);
@@ -27,12 +26,15 @@ router.put("/:id", async (req, res) => {
               id: req.params.id,
             }
         });
+
         if (!updatedQty[0]) {
-            res.status(404).json({ message: "Item not available"});
+            res.status(404).json({ message: "No product found with this id"});
             return;
         }
-        res.status(200).redirect("/api/cart");
+
+        res.status(200).json(updatedQty);
     } catch (e) {
+        console.log(e);
         res.status(500).json(e);
     }
 });
@@ -41,10 +43,16 @@ router.delete("/:id", async (req, res) => {
     try {
         const deletedProduct = await Cart.destroy({
             where: {
-              id: req.params.id,
+              id: req.params.id
             }
         });
-        res.status(200).redirect("/api/cart");
+
+        if (!deletedProduct) {
+            res.status(404).json({ message: 'No product found with this id' });
+            return;
+        }
+
+        res.status(200).json(deletedProduct);
     } catch (e) {
         res.status(500).json(e);
     }

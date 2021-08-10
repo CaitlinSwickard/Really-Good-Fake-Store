@@ -208,3 +208,7 @@ hr:not([size]) {
   padding: 5px;
   width: 150px;
 }
+
+.cartId {
+  font-size: 2px;
+}

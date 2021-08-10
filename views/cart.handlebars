@@ -1,27 +1,7 @@
+<h2>Your Cart</h2>
+
 {{#if products.length}}
 {{#each products as |product|}}
-{{!-- <div class="card">
-    <header>
-    {{product.title}}
-    </header>
-
-    <div class="card-body">
-        <img src="{{product.image}}" alt="{{product.description}}">
-    </div>
-        <h3>Qty</h3>
-        <p id="cartId">{{product.cart.id}}</p>
-        <form action="/cart/:{{product.cart.id}}" method="PUT">
-            <button id="decrease">-</button>
-            <p id="qty">{{product.cart.qty}}</p>
-            <button id="increase">+</button>
-        </form>
-        <form action="/cart/:{{product.cart.id}}" method="DELETE">
-            <button id="delete">Delete</button>
-        </form>
-    <h3>${{product.price}}</h3>
-    <p>{{product.description}}</p>
-</div> --}}
-
     <div class="col-sm-4 pb-5 pt-5">
         <img src="{{product.image}}" alt="{{product.description}}" class="img-responsive">
         <div class="caption"></div>
@@ -30,15 +10,11 @@
         <div class="clearfix">
             <div class="price pull-left">${{product.price}}</div>
             <h3>Qty</h3>
-            <p id="cartId">{{product.cart.id}}</p>
-            <form action="/cart/:{{product.cart.id}}" method="PUT">
-                <button id="decrease">-</button>
-                <p id="qty">{{product.cart.qty}}</p>
-                <button id="increase">+</button>
-            </form>
-            <form action="/cart/:{{product.cart.id}}" method="DELETE">
-                <button id="delete">Delete</button>
-            </form>
+            <p class="cartId">{{product.cart.id}}</p>
+                <button class="decrease" data-id = "{{product.cart.id}}">-</button>
+                <p class="qty" data-id = "{{product.cart.id}}" id="qty-{{product.cart.id}}">{{product.cart.qty}}</p>
+                <button class="increase" data-id = "{{product.cart.id}}">+</button>
+                <button class="delete" data-id = "{{product.cart.id}}">Delete</button>
         </div>
     </div>
 {{/each}}

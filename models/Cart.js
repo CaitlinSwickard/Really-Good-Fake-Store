@@ -44,26 +44,6 @@ Cart.init(
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    // title: {
-    //   type: DataTypes.TEXT,
-    //   allowNull: false,
-    // },
-    // price: {
-    //   type: DataTypes.DECIMAL,
-    //   allowNull: false,
-    // },
-    // description: {
-    //   type: DataTypes.TEXT,
-    //   allowNull: false,
-    // },
-    // category: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
-    // image: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
     product_id: {
       type: DataTypes.INTEGER,
       references: {
