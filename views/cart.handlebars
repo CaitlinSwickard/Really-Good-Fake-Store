@@ -1,0 +1,20 @@
+{{#each products as |product|}}
+<div class="card">
+    <header>
+    {{product.title}}
+    </header>
+
+    <div class="card-body">
+        <img src="{{product.image}}" alt="{{product.description}}">
+    </div>
+    <form action="/cart/:{{product.cart.id}}" method="PUT">
+        <h3>Qty</h3>
+        <button id="decrease">-</button>
+        <textarea>{{product.cart.qty}}</textarea>
+        <button id="increase">+</button>
+        <input type="submit" id="submit">
+    </form>
+    <h3>${{product.price}}</h3>
+    <p>{{product.description}}</p>
+</div>
+{{/each}}

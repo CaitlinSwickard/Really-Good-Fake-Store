@@ -30,7 +30,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Cart extends Model { }
+class Cart extends Model {  }
 
 Cart.init(
   {
@@ -40,25 +40,36 @@ Cart.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
-      type: DataTypes.TEXT,
-      allowNull: false,
+    qty: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     },
-    price: {
-      type: DataTypes.DECIMAL,
-      allowNull: false,
-    },
-    description: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    category: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    image: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    // title: {
+    //   type: DataTypes.TEXT,
+    //   allowNull: false,
+    // },
+    // price: {
+    //   type: DataTypes.DECIMAL,
+    //   allowNull: false,
+    // },
+    // description: {
+    //   type: DataTypes.TEXT,
+    //   allowNull: false,
+    // },
+    // category: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
+    // image: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
+    product_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "product",
+        key: "id"
+      }
     },
     customer_id: {
       type: DataTypes.INTEGER,
