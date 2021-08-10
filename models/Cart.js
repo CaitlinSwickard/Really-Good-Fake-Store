@@ -42,7 +42,7 @@ Cart.init(
     },
     qty: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      defaultValue: 1
     },
     product_id: {
       type: DataTypes.INTEGER,

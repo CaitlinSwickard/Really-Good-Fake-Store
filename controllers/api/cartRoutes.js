@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Cart, Customer, Product } = require('../../models');
+const withAuth = require("../../utils/auth");
 
 router.get('/', async (req, res) => { 
     try {
@@ -19,6 +20,40 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/current', withAuth, async (req, res) => { 
+    try {
+        const cartProducts = await Customer.findAll({
+            where: {
+                id: 2
+            },
+            include: [{ model: Product, through: Cart }]
+        });
+
+        const carts = cartProducts.map(cart => cart.toJSON());
+        const products = carts[0].products;
+        const allProducts = products.map(product => product.cart.product_id);
+        const stringProducts = JSON.stringify(allProducts);
+        console.log(stringProducts);
+        res.status(200).json(stringProducts);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+router.post("/", async (req, res) => {
+    try {
+        const newCart = await Cart.create({
+            product_id: req.body.product_id,
+            customer_id: req.session.user_id
+        });
+        res.status(200).json(newCart);
+    } catch (e) {
+        console.log(e);
+        res.status(500).json(e);
+    }
+});
+
 router.put("/:id", async (req, res) => {
     try {
         const updatedQty = await Cart.update(req.body, {
@@ -34,7 +69,6 @@ router.put("/:id", async (req, res) => {
 
         res.status(200).json(updatedQty);
     } catch (e) {
-        console.log(e);
         res.status(500).json(e);
     }
 });
