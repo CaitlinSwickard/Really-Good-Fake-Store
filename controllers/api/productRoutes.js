@@ -24,9 +24,7 @@ router.get('/mens', async (req, res) => {
         });
 
         const products = category.map(product =>product.toJSON())
-        res.status(200).json(category);
-        console.log(category);
-
+        res.status(200).render("products", { products });
     } catch (err) {
         res.status(400).json(err);
     }
@@ -41,11 +39,8 @@ router.get('/womens', async (req, res) => {
                 category: "women's clothing"
             }
         });
-
         const products = category.map(product =>product.toJSON())
-        res.status(200).json(category);
-        console.log(category);
-
+        res.status(200).render("products", { products });
     } catch (err) {
         res.status(400).json(err);
     }
@@ -60,11 +55,8 @@ router.get('/jewelery', async (req, res) => {
                 category: "jewelery"
             }
         });
-
         const products = category.map(product =>product.toJSON())
-        res.status(200).json(category);
-        console.log(category);
-
+        res.status(200).render("products", { products });
     } catch (err) {
         res.status(400).json(err);
     }
@@ -78,11 +70,8 @@ router.get('/electronics', async (req, res) => {
                 category: "electronics"
             }
         });
-
         const products = category.map(product =>product.toJSON())
-        res.status(200).json(category);
-        console.log(category);
-
+        res.status(200).render("products", { products });
     } catch (err) {
         res.status(400).json(err);
     }
