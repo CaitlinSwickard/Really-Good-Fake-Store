@@ -1,4 +1,19 @@
-{{#each products as |product|}}
-{{> product-details}}
 
-{{/each}}
+<div class="container">
+    <div class="row">
+        {{#each products as |product|}}
+        <div class="col-sm-4 pb-5 pt-5">
+            <a class="thumbnail" href="#">
+                <img src="{{product.image}}" alt="{{product.description}}" class="img-responsive">
+            </a>
+            <div class="caption"></div>
+            <h3>{{product.title}}</h3>
+            <p class="description">{{product.description}}</p>
+            <div class="clearfix">
+                <div class="price pull-left">${{product.price}}</div>
+                <a href="#" class="btn btn-success pull-right" role="button">Add to Cart</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
