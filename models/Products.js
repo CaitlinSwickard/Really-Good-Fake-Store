@@ -31,6 +31,10 @@ Product.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    featured: {
+      type: DataTypes.BOOLEAN,
+      
+    }
   
   },
   {
