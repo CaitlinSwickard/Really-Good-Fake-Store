@@ -1,6 +1,6 @@
 {{#if products.length}}
 {{#each products as |product|}}
-<div class="card">
+{{!-- <div class="card">
     <header>
     {{product.title}}
     </header>
@@ -20,7 +20,27 @@
         </form>
     <h3>${{product.price}}</h3>
     <p>{{product.description}}</p>
-</div>
+</div> --}}
+
+    <div class="col-sm-4 pb-5 pt-5">
+        <img src="{{product.image}}" alt="{{product.description}}" class="img-responsive">
+        <div class="caption"></div>
+        <h3>{{product.title}}</h3>
+        <p class="description">{{product.description}}</p>
+        <div class="clearfix">
+            <div class="price pull-left">${{product.price}}</div>
+            <h3>Qty</h3>
+            <p id="cartId">{{product.cart.id}}</p>
+            <form action="/cart/:{{product.cart.id}}" method="PUT">
+                <button id="decrease">-</button>
+                <p id="qty">{{product.cart.qty}}</p>
+                <button id="increase">+</button>
+            </form>
+            <form action="/cart/:{{product.cart.id}}" method="DELETE">
+                <button id="delete">Delete</button>
+            </form>
+        </div>
+    </div>
 {{/each}}
 {{else}}
 <h3>You have no items in your cart. <a href="/api/products">Go shopping!</a></h3>
