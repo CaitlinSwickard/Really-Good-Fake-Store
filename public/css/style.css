@@ -143,16 +143,16 @@ dl {
   background-color: #1732a4;
 }
 
-.img {
-  vertical-align: middle;
-  border-style: none;
+.main-image {
+  width: 30rem;
+  padding-left: -3rem;
 }
 
-.image_img {
+/* .image_img {
   display: block;
-  width: 100%;
+  width: 20%;
   object-fit: cover;
-}
+} */
 
 section {
   background-position: 50% 50%;
@@ -196,4 +196,15 @@ hr:not([size]) {
   height: 60px;
   line-height: 60px; /* Vertically center text */
   background-color: #343a40;
+}
+
+.container{
+  padding-top: 5rem;
+}
+
+.img-responsive{
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
 }
