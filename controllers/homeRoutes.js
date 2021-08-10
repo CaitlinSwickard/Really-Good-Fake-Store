@@ -1,12 +1,21 @@
 const router = require('express').Router();
+const { Product } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
-    res.status(200).render ('homepage', {
-      logged_in: req.session.logged_in
+    const category = await Product.findAll({
+      where: {
+        featured: true
+      }
     });
-    
+    const products = category.map(product => product.toJSON())
+    res.status(200).render('homepage', {
+      products
+      // logged_in: req.session.logged_in
+    });
+
   } catch (err) {
+    console.error(err);
     res.status(500).json(err);
   }
 });
@@ -22,3 +31,4 @@ router.get('/login', (req, res) => {
 });
 
 module.exports = router;
+

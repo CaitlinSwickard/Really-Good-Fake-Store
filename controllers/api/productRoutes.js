@@ -25,7 +25,6 @@ router.get('/mens', async (req, res) => {
 
         const products = category.map(product =>product.toJSON())
         res.status(200).json(category);
-        console.log(category);
 
     } catch (err) {
         res.status(400).json(err);
@@ -44,7 +43,6 @@ router.get('/womens', async (req, res) => {
 
         const products = category.map(product =>product.toJSON())
         res.status(200).json(category);
-        console.log(category);
 
     } catch (err) {
         res.status(400).json(err);
@@ -63,7 +61,6 @@ router.get('/jewelery', async (req, res) => {
 
         const products = category.map(product =>product.toJSON())
         res.status(200).json(category);
-        console.log(category);
 
     } catch (err) {
         res.status(400).json(err);
@@ -81,12 +78,12 @@ router.get('/electronics', async (req, res) => {
 
         const products = category.map(product =>product.toJSON())
         res.status(200).json(category);
-        console.log(category);
 
     } catch (err) {
         res.status(400).json(err);
     }
 });
+
 
 
 module.exports = router;
