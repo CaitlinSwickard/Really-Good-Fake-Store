@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Wishlist extends Model {}
+class Product extends Model { }
 
-Wishlist.init(
+Product.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -31,21 +31,16 @@ Wishlist.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    customer_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model:'customer',
-        key:'id',
-      }
-    },
+  
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'wishlist',
+    modelName: 'product',
   }
 );
 
-module.exports = Wishlist
+module.exports = Product
+

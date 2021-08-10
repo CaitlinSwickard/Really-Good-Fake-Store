@@ -1,14 +1,17 @@
 const sequelize = require('../config/connection');
-const { Customer } = require('../models');
-
-const customerData = require('./customerSeedData.json');
-
+const wishlistData = require('./wishlistSeedData');
+const customerData = require('./customerSeedData');
+const cartData = require('./cartSeedData');
+const productData = require('./productSeedData')
+const { Customer, Cart, Wishlist, Product } = require('../models');
 
 const seedAll = async () => {
   try {
     await sequelize.sync({ force: true });
-    console.log(customerData);
-    await Customer.create(customerData[0]);
+    await Customer.bulkCreate(customerData);
+    await Cart.bulkCreate(cartData);
+    await Wishlist.bulkCreate(wishlistData);
+    await Product.bulkCreate(productData);
 
   } catch (error) {
     console.log(error);
