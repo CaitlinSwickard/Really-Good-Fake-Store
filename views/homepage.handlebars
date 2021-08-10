@@ -9,7 +9,7 @@
               <p class="mbr-text mbr-fonts-style display-7 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt omnis, aliquam explicabo unde nulla eos ex, nisi quae mollitia ipsa modi aut reprehenderit doloribus.</p>
               <div class="buttons_wrap">
                   <div class="btn_group">
-                      <div class="mbr-section-btn"><a class="btn btn-md btn-primary display-4" href="#">Buy Now</a></div>
+                      {{!-- <div class="mbr-section-btn"><a class="btn btn-md btn-primary display-4" href="#">Buy Now</a></div> --}}
                       
                       <div>
                   </div>
@@ -48,68 +48,32 @@
       <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
         <h2 class="fs-15 text-uppercase text-primary mb-3">Featured Products</h2>
         <br>
-        <h3 class="display-4 mb-10 px-xl-10">Browse our latest products. </h3>
+        <h3 class="display-4 mb-10 px-xl-10">Browse our favorite products. </h3>
       </div>
     </div>
     <br>
-    <!-- begin card -->
-    <div class="position-relative mb-14 mb-md-17">
-      <div class="shape rounded-circle bg-soft-primary"></div>
-      <div class="row text-center">
-        <div class="col-md-6 col-lg-3">
-          <div class="card">
-            <div class="card-body">
-             <h4>Card 1</h4>
-              <p class="mb-2">VViViD Smoke Air-tint Headlight Tint</p>
-              <a href="#" class="more hover link-primary">Learn More</a>
+
+    <div class="container">
+    <div class="row">
+        {{#each products as |product|}}
+        <div class="col-sm-3 pb-5 pt-5">
+            <a class="thumbnail" href="#">
+                <img src="{{product.image}}" alt="{{product.description}}" class="img-responsive">
+            </a>
+            <div class="caption"></div>
+            <h3>{{product.title}}</h3>
+            <p class="description">{{product.description}}</p>
+            <div class="clearfix">
+                <div class="price pull-left">${{product.price}}</div>
+                <a href="#" class="btn btn-success pull-right" role="button">Add to Cart</a>
             </div>
-          </div>
-          <!-- end card -->
         </div>
-        <!--begin card -->
-        <div class="col-md-6 col-xl-3">
-          <div class="card">
-            <div class="card-body">
-             
-              <h4>Card 2</h4>
-              <p class="mb-2">2017 VViViD+ Matte Metallic Black (Ghost)</p>
-              <a href="#" class="more hover link-primary">Learn More</a>
-            </div>
-          
-          </div>
-          <!-- end card -->
-        </div>
-        <!--begin card -->
-        <div class="col-md-6 col-xl-3">
-          <div class="card">
-            <div class="card-body">
-              
-              <h4>Card 3</h4>
-              <p class="mb-2">Craft Vinyl Oracal - 12 in x 10 Yds - White</p>
-              <a href="#" class="more hover link-primary">Learn More</a>
-            </div>
-            </div>
-          <!--end card -->
-        </div>
-        <!--begin card -->
-        <div class="col-md-6 col-xl-3">
-          <div class="card">
-            <div class="card-body">
-              
-              <h4>Card 4</h4>
-              <p class="mb-2">Craft Vinyl Oracal - 12 in x 10 Yds - Red</p>
-              <a href="#" class="more hover link-primary">Learn More</a>
-            </div>
-            
-          </div>
-         <!--end card -->
-        </div>
-        <!--/column -->
-      </div>
-      <!--end row -->
+        {{/each}}
     </div>
-  </section>
-<!-- 4 CARDS END -->
+</div>
+
+
+   
 <br>
 <br>
 <!-- CATEGORIES SECTION BEGIN -->
@@ -117,7 +81,7 @@
   <div class="container">
     <div class="row text-center">
       <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-        <h2 class="text-uppercase text-primary ">Categories</h2>
+        <h2 class="text-uppercase text-primary" id="categories">Categories</h2>
         <br />
         </div>
           </div>
@@ -127,8 +91,8 @@
         <div class="col-md-6 col-lg-3">
           <div class="card">
             <div class="card-body">
-             <h4>Clothing</h4>
-              <a href="#" class="more hover link-primary">Browse products</a>
+             <h4>Jewlery</h4>
+              <a href="/api/products/jewelery" class="more hover link-primary">Browse products</a>
             </div>
            
           </div>
@@ -139,7 +103,7 @@
           <div class="card">
             <div class="card-body">
               <h4>Electronics</h4>
-              <a href="#" class="more hover link-primary">Browse products</a>
+              <a href="/api/products/electronics" class="more hover link-primary">Browse products</a>
             </div>
             
           </div>
@@ -149,15 +113,27 @@
         <div class="col-md-6 col-lg-3">
           <div class="card">
             <div class="card-body">
-              <h4>Jewelery</h4>
+              <h4>Women's Clothing</h4>
               
-              <a href="#" class="more hover link-primary">Browse products</a>
+              <a href="/api/products/womens" class="more hover link-primary">Browse products</a>
             </div>
             
           </div>
-          <!-- end card -->
         </div>
-      
+        <!-- end card -->
+           <!--begin card -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card">
+            <div class="card-body">
+              <h4>Men's Clothing</h4>
+              
+              <a href="/api/products/mens" class="more hover link-primary">Browse products</a>
+            </div>
+            
+          </div>
+        </div>
+        <!-- end card -->
+        
         
             
           </div>
