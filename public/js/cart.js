@@ -1,33 +1,37 @@
-// const decreaseBtn = document.querySelector('#decrease');
-// const increaseBtn = document.querySelector('#increase');
-// const qtyField = document.querySelector("#qty");
+const decreaseBtn = document.querySelector('#decrease');
+const increaseBtn = document.querySelector('#increase');
+const qtyField = document.querySelector("#qty");
+const cartId = document.querySelector("#cartId");
 
-// const decreaseQty = (event) => {
-//     event.preventDefault();
+const decreaseQty = async (event) => {
+    event.preventDefault();
 
-//     let qty = parseInt(qtyField.textContent)--;
+    let qty = parseInt(qtyField.textContent);
+    if (qty > 0) {
+        qty -= 1;
+        qtyField.textContent = qty;
+        const response = await fetch(`/api/cart/${cartId.textContent}`, {
+            method: 'PUT',
+            body: JSON.stringify({ qty }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+    } 
+};
 
-//     console.log(qty);
-// };
+const increaseQty = async (event) => {
+    event.preventDefault();
 
-// const qtyFormHandler = async (event) => {
-//     event.preventDefault();
+    let qty = parseInt(qtyField.textContent);
+    if (qty < 100) {
+        qty += 1;
+        qtyField.textContent = qty;
+        const response = await fetch(`/api/cart/${cartId.textContent}`, {
+            method: 'PUT',
+            body: JSON.stringify({ qty }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+    } 
+};
 
-//     if () {
-//         // Send a POST request to the API endpoint
-//         const response = await fetch('/api/customers/login', {
-//             method: 'PUT',
-//             body: JSON.stringify({ email, password }),
-//             headers: { 'Content-Type': 'application/json' },
-//         });
-//         if (response.ok) {
-//             // If successful, redirect the browser to the dashboard page
-//             document.location.replace('/');
-//         } else {
-//             alert(response.statusText);
-//         }
-//     }
-// };
-
-// decreaseBtn.addEventListener("click", decreaseQty);
-// document.querySelector("#submit").addEventListener('submit', qtyFormHandler);
+decreaseBtn.addEventListener("click", decreaseQty);
+increaseBtn.addEventListener("click", increaseQty);
