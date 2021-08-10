@@ -1,5 +1,6 @@
 const decreaseBtn = document.querySelector('#decrease');
 const increaseBtn = document.querySelector('#increase');
+const delBtn = document.querySelector("#delete");
 const qtyField = document.querySelector("#qty");
 const cartId = document.querySelector("#cartId");
 
@@ -33,5 +34,14 @@ const increaseQty = async (event) => {
     } 
 };
 
+const delBtnHandler = async (event) => {
+    event.preventDefault();
+
+    const response = await fetch(`/api/cart/${cartId.textContent}`, {
+        method: "DELETE"
+    });
+};
+
 decreaseBtn.addEventListener("click", decreaseQty);
 increaseBtn.addEventListener("click", increaseQty);
+delBtn.addEventListener("click", delBtnHandler);

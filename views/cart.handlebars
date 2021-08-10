@@ -1,3 +1,4 @@
+{{#if products.length}}
 {{#each products as |product|}}
 <div class="card">
     <header>
@@ -9,14 +10,22 @@
     </div>
         <h3>Qty</h3>
         <p id="cartId">{{product.cart.id}}</p>
-        <form action="/cart/:{{product.cart.id}}" method="PUT"></form>
+        <form action="/cart/:{{product.cart.id}}" method="PUT">
             <button id="decrease">-</button>
             <p id="qty">{{product.cart.qty}}</p>
             <button id="increase">+</button>
+        </form>
+        <form action="/cart/:{{product.cart.id}}" method="DELETE">
+            <button id="delete">Delete</button>
         </form>
     <h3>${{product.price}}</h3>
     <p>{{product.description}}</p>
 </div>
 {{/each}}
+{{else}}
+<h3>You have no items in your cart. <a href="/api/products">Go shopping!</a></h3>
+{{/if}}
+
+
 
 <script src="/js/cart.js"></script>
