@@ -35,6 +35,19 @@ router.put("/:id", async (req, res) => {
     } catch (e) {
         res.status(500).json(e);
     }
-})
+});
+
+router.delete("/:id", async (req, res) => {
+    try {
+        const deletedProduct = await Cart.destroy({
+            where: {
+              id: req.params.id,
+            }
+        });
+        res.status(200).redirect("/api/cart");
+    } catch (e) {
+        res.status(500).json(e);
+    }
+});
 
 module.exports = router;
