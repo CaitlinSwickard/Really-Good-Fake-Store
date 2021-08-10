@@ -7,14 +7,16 @@
     <div class="card-body">
         <img src="{{product.image}}" alt="{{product.description}}">
     </div>
-    <form action="/cart/:{{product.cart.id}}" method="PUT">
         <h3>Qty</h3>
-        <button id="decrease">-</button>
-        <textarea>{{product.cart.qty}}</textarea>
-        <button id="increase">+</button>
-        <input type="submit" id="submit">
-    </form>
+        <p id="cartId">{{product.cart.id}}</p>
+        <form action="/cart/:{{product.cart.id}}" method="PUT"></form>
+            <button id="decrease">-</button>
+            <p id="qty">{{product.cart.qty}}</p>
+            <button id="increase">+</button>
+        </form>
     <h3>${{product.price}}</h3>
     <p>{{product.description}}</p>
 </div>
 {{/each}}
+
+<script src="/js/cart.js"></script>

@@ -31,7 +31,7 @@ router.put("/:id", async (req, res) => {
             res.status(404).json({ message: "Item not available"});
             return;
         }
-        res.status(200).reload();
+        res.status(200).redirect("/api/cart");
     } catch (e) {
         res.status(500).json(e);
     }

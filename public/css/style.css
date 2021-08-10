@@ -197,3 +197,7 @@ hr:not([size]) {
   line-height: 60px; /* Vertically center text */
   background-color: #343a40;
 }
+
+#cartId {
+  font-size: 2px;
+}
