@@ -21,7 +21,7 @@ const addToCart = async (event) => {
             const currentCart = await response.json();
             console.log(currentCart);
             if (response.ok) {
-                // document.location.replace("/api/cart");
+                document.location.replace("/api/cart");
             } else {
                 alert('Failed to add product to cart');
             }

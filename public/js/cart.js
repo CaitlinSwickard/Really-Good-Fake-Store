@@ -1,7 +1,7 @@
-const decreaseBtn = document.querySelector('.decrease');
-const increaseBtn = document.querySelector('.increase');
-const delBtn = document.querySelector(".delete");
-const cartId = document.querySelector(".cartId");
+const decreaseBtn = document.querySelectorAll('.decrease');
+const increaseBtn = document.querySelectorAll('.increase');
+const delBtn = document.querySelectorAll(".delete");
+const cartId = document.querySelectorAll(".cartId");
 
 const decreaseQty = async (event) => {
     const id = event.target.getAttribute("data-id");
@@ -69,6 +69,17 @@ const delBtnHandler = async (event) => {
     }
 };
 
-decreaseBtn.addEventListener("click", decreaseQty);
-increaseBtn.addEventListener("click", increaseQty);
-delBtn.addEventListener("click", delBtnHandler);
+for (let i = 0; i < decreaseBtn.length; i++) {
+  const btn = decreaseBtn[i];
+  btn.addEventListener("click", decreaseQty);
+};
+
+for (let i = 0; i < increaseBtn.length; i++) {
+  const btn = increaseBtn[i];
+  btn.addEventListener("click", increaseQty);
+};
+
+for (let i = 0; i < delBtn.length; i++) {
+  const btn = delBtn[i];
+  btn.addEventListener("click", delBtnHandler);
+};

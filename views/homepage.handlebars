@@ -65,7 +65,7 @@
             <p class="description">{{product.description}}</p>
             <div class="clearfix">
                 <div class="price pull-left">${{product.price}}</div>
-                <a href="#" class="btn btn-success pull-right" role="button">Add to Cart</a>
+                <button class="btn btn-success pull-right add-to-cart" data-id = "{{product.id}}" id = "add-{{product.id}}">Add to Cart</button>
             </div>
         </div>
         {{/each}}
@@ -199,3 +199,5 @@
 </footer>
 </section>
 <!-- END FOOTER -->
+
+<script src="/js/product.js"  defer></script>
