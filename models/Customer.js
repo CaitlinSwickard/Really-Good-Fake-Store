@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
+const validator = require('validator');
 
 class Customer extends Model {
   checkPassword(loginPw) {
@@ -26,7 +27,13 @@ Customer.init(
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false,
+      validate: {
+        isMinMaxLength(value) {
+          if (!validator.isLength(value, { min: 6, max: 15 })) {
+            throw new error('Password is a min of 6 and a max of 15 characters.')
+          }
+        }
+      }
     },
   },
   {

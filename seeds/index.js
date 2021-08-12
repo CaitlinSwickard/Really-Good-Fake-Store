@@ -4,6 +4,8 @@ const cartData = require('./cartSeedData');
 const productData = require('./productSeedData')
 const { Customer, Cart, Product } = require('../models');
 
+
+// seed the data base
 const seedAll = async () => {
   try {
     await sequelize.sync({ force: true });
