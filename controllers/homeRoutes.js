@@ -10,8 +10,8 @@ router.get('/', async (req, res) => {
     });
     const products = category.map(product => product.toJSON())
     res.status(200).render('homepage', {
-      products
-      // logged_in: req.session.logged_in
+      products,
+      logged_in: req.session.logged_in
     });
 
   } catch (err) {

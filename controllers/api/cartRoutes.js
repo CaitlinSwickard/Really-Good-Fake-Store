@@ -13,7 +13,9 @@ router.get('/', async (req, res) => {
 
         const carts = cartProducts.map(cart => cart.toJSON());
         const products = carts[0].products;
-        res.status(200).render('cart', { products });
+        res.status(200).render('cart', { 
+            products,
+            logged_in: req.session.logged_in });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
