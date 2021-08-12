@@ -144,8 +144,10 @@ dl {
 }
 
 .main-image {
-  width: 30rem;
-  padding-left: -3rem;
+  /* width: 30rem; */
+  /* padding-left: -3rem; */
+  max-width: 100%; 
+  height: auto;
 }
 
 /* .image_img {
