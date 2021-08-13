@@ -1,18 +1,8 @@
 const router = require('express').Router();
 const { Customer } = require('../../models');
 
-// get all customers route
-// router.get('/', async (req, res) => {
-//     try {
-//         const allCustomers = await Customer.findAll();
-//         const customers = allCustomers.map(customer => customer.toJSON());
-//         // render to homepage
-//         res.status(200).render('homepage', { customers });
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
 
+// create login
 router.post('/', async (req, res) => {
     try {
         const userData = await Customer.create(req.body);
@@ -28,6 +18,8 @@ router.post('/', async (req, res) => {
     }
 });
 
+
+// login as user
 router.post('/login', async (req, res) => {
     try {
         const userData = await Customer.findOne({ where: { email: req.body.email } });
@@ -62,6 +54,8 @@ router.post('/login', async (req, res) => {
     }
 });
 
+
+// logout
 router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
         req.session.destroy(() => {
