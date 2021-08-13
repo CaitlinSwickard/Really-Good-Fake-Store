@@ -1,6 +1,7 @@
 const addToCartBtn = document.getElementsByClassName("add-to-cart");
 console.log(addToCartBtn[0]);
   
+// add product to cart
 const addToCart = async (event) => {
     const product_id = event.target.getAttribute("data-id");
     console.log(product_id);

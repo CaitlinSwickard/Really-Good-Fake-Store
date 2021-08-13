@@ -1,17 +1,26 @@
 # Really Good Fake Store
 
- This project is.....
+
+## Description
+
+This app is a mock e-commerce website. The user can view our product or view by category with creating a user account. The user must create an account to be able to add, delete or update qty in their cart. If the user logs out and and logs back in the items in the cart will remain for the user. 
+
 
   * [Installation](#install)
   * [Usage](#usage)
-  * Visit deployed Heroku app [here.]()
+  * [Visit deployed Heroku app here]()
+  * [View presentation slides here](https://docs.google.com/presentation/d/16h9slhOimONXTGtBx6qNiJgWqWdzq8vWGRG21bLmR60/edit#slide=id.ge6e60ce203_0_52)
 
 
 
-## User Story
+## Concept/Motivation
 
-story here.....
+Our project is a mock e-commerce store called Really Good Fake Store. E-commerce websites make up about 10% of the internet. Our goal was to be able to build this mock store with our current coding skills to mock something similar to what we might see on a real job. 
 
+Future development for this project would be:
+* Adding a wishlist seperate from the cart function.
+* Developing a check out function.
+* Creating an algorithm that will show product recommends based off of items the user has looked at. 
 
 
 ## Install
@@ -57,4 +66,6 @@ http://localhost:3001
 
 ## Screen shots
 
-![Shot-1]()
+![Shot-1](public/img/homepage.png)
+![Shot-1](public/img/product_page.png)
+![Shot-1](public/img/cart.png)

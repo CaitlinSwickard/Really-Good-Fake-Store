@@ -3,6 +3,7 @@ const increaseBtn = document.querySelectorAll('.increase');
 const delBtn = document.querySelectorAll(".delete");
 const cartId = document.querySelectorAll(".cartId");
 
+// update(remove) qty of product in cart
 const decreaseQty = async (event) => {
     const id = event.target.getAttribute("data-id");
     const qtyField = document.getElementById(`qty-${id}`);
@@ -29,6 +30,7 @@ const decreaseQty = async (event) => {
     } 
 };
 
+// update(increase) qty of product in cart
 const increaseQty = async (event) => {
     const id = event.target.getAttribute("data-id");
     const qtyField = document.getElementById(`qty-${id}`)
@@ -53,6 +55,7 @@ const increaseQty = async (event) => {
     } 
 };
 
+// delete product in cart
 const delBtnHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
         const id = event.target.getAttribute('data-id');
@@ -69,6 +72,7 @@ const delBtnHandler = async (event) => {
     }
 };
 
+// btn handlers
 for (let i = 0; i < decreaseBtn.length; i++) {
   const btn = decreaseBtn[i];
   btn.addEventListener("click", decreaseQty);
