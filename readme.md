@@ -8,7 +8,7 @@ This app is a mock e-commerce website. The user can view our product or view by 
 
   * [Installation](#install)
   * [Usage](#usage)
-  * [Visit deployed Heroku app here]()
+  * [Visit deployed Heroku app here](https://really-good-fake-store.herokuapp.com/)
   * [View presentation slides here](https://docs.google.com/presentation/d/16h9slhOimONXTGtBx6qNiJgWqWdzq8vWGRG21bLmR60/edit#slide=id.ge6e60ce203_0_52)
 
 
@@ -18,7 +18,7 @@ This app is a mock e-commerce website. The user can view our product or view by 
 Our project is a mock e-commerce store called Really Good Fake Store. E-commerce websites make up about 10% of the internet. Our goal was to be able to build this mock store with our current coding skills to mock something similar to what we might see on a real job. 
 
 Future development for this project would be:
-* Adding a wishlist seperate from the cart function.
+* Adding a wishlist function.
 * Developing a check out function.
 * Creating an algorithm that will show product recommends based off of items the user has looked at. 
 
@@ -62,6 +62,12 @@ http://localhost:3001
   - mysql2
   - sequelize
   - validator
+
+#### Creator Breakdown:
+
+- Scrum Master: [Ana](https://github.com/abanae)
+- Front End: [Max](https://github.com/maximosandoval)
+- Back End: [Matt](https://github.com/COcoder555) & [Alicia](https://github.com/aliciachamar) & [Caitlin](https://github.com/CaitlinSwickard) & [Ana](https://github.com/abanae)
 
 
 ## Screen shots
