@@ -11,7 +11,8 @@ This app is a mock e-commerce website. The user can view our product or view by 
   * [Visit deployed Heroku app here](https://really-good-fake-store.herokuapp.com/)
   * [View presentation slides here](https://docs.google.com/presentation/d/16h9slhOimONXTGtBx6qNiJgWqWdzq8vWGRG21bLmR60/edit#slide=id.ge6e60ce203_0_52)
 
-
+## User Story
+As a user when shopping on this app I want to be able to view all products available. I also want to be able to look at prducts by category. When I find a product I want I want to be able to add it to a cart. Once in the cart I want to be able to delete it or add quantity. As a user I want to be able to log back into my account and continue shopping where I left off. 
 
 ## Concept/Motivation
 
@@ -25,8 +26,11 @@ Future development for this project would be:
 
 ## Install
 
-Clone project.
-Run the following line of code in your terminal to install all the needed packages: 
+Clone repository: 
+- https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
+
+Install Dependencies: 
+- All NPM packages required for this application are already listed as dependencies in the package.json file. Run the command 'npm i' command in your terminal at the root directory level to install the packages. 
 ```
 npm i
 ```
