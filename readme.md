@@ -5,11 +5,11 @@
 
 This app is a mock e-commerce website. The user can view our product or view by category with creating a user account. The user must create an account to be able to add, delete or update qty in their cart. If the user logs out and and logs back in the items in the cart will remain for the user. 
 
-
-  * [Installation](#install)
-  * [Usage](#usage)
   * [Visit deployed Heroku app here](https://really-good-fake-store.herokuapp.com/)
   * [View presentation slides here](https://docs.google.com/presentation/d/16h9slhOimONXTGtBx6qNiJgWqWdzq8vWGRG21bLmR60/edit#slide=id.ge6e60ce203_0_52)
+  * 
+  * [Installation](#install)
+  * [Usage](#usage)
 
 ## User Story
 As a user when shopping on this app I want to be able to view all products available. I also want to be able to look at prducts by category. When I find a product I want I want to be able to add it to a cart. Once in the cart I want to be able to delete it or add quantity. As a user I want to be able to log back into my account and continue shopping where I left off. 
